@@ -43,6 +43,13 @@ class UI {
         document.getElementById('author').value = '';
         document.getElementById('isbn').value = '';
     }
+    static deleteBook(el){
+     
+        if(el.classList.contains('delete')){
+            el.parentElement.parentElement.remove();
+        }
+    }
+
 }
 
 // Store Class: Handles Storage
@@ -68,3 +75,6 @@ document.getElementById('book-form').addEventListener('submit', (e)=> {
 
 });
 // Event to Remove a Book
+document.getElementById('book-list').addEventListener('click', (e) =>{
+    UI.deleteBook(e.target);
+})
