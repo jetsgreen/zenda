@@ -64,11 +64,18 @@ document.getElementById('book-form').addEventListener('submit', (e)=> {
     const author = document.getElementById('author').value;
     const isbn = document.getElementById('isbn').value;
 
-    // instatiate Book
+// Validate Input
+    if(title === '' || author === '' || isbn === ''){
+        alert('Please fill in all required fiels')
+    }else{
+         // instatiate Book
     const book = new Book(title, author, isbn);
     
     // Add Book To UI
     UI.addBookToLIst(book);
+    }
+
+   
 
     // Method to clear input fields after submission
     UI.clearFields();
