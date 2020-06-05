@@ -38,6 +38,20 @@ class UI {
         list.appendChild(row);
     }
 
+    static showAlert(message, className){
+        const div = document.createElement('div');
+        div.className = `alert alert-${className}`;
+        div.appendChild(document.createTextNode(message));
+        const container = document.querySelector('.container');
+        const form = document.querySelector('#book-form');
+        container.insertBefore(div, form);
+        // Make alert go away
+        setTimeout(()=>
+            document.querySelector('.alert').remove(),
+        2000);
+
+    }
+
     static clearFields(){
         document.getElementById('title').value = '';
         document.getElementById('author').value = '';
@@ -66,16 +80,14 @@ document.getElementById('book-form').addEventListener('submit', (e)=> {
 
 // Validate Input
     if(title === '' || author === '' || isbn === ''){
-        alert('Please fill in all required fiels')
+        UI.showAlert('Please fill in all required fields', 'danger');
     }else{
          // instatiate Book
     const book = new Book(title, author, isbn);
-    
+   
     // Add Book To UI
     UI.addBookToLIst(book);
     }
-
-   
 
     // Method to clear input fields after submission
     UI.clearFields();
