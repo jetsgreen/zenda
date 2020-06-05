@@ -87,13 +87,20 @@ document.getElementById('book-form').addEventListener('submit', (e)=> {
    
     // Add Book To UI
     UI.addBookToLIst(book);
-    }
+
+        //Book added alert 
+    UI.showAlert('Book Added', 'success');
 
     // Method to clear input fields after submission
     UI.clearFields();
+    }
+
+
 
 });
 // Event to Remove a Book
 document.getElementById('book-list').addEventListener('click', (e) =>{
     UI.deleteBook(e.target);
+    // Book deleted alert
+    UI.showAlert('Book Deleted', 'danger')
 })
