@@ -47,7 +47,8 @@ class UI {
         document.getElementById('isbn').value = '';
     }
     static deleteBook(el){
-     
+    //  Check condition to see if element contains the class delete
+    //  If it does remove it
         if(el.classList.contains('delete')){
             el.parentElement.parentElement.remove();
         }
@@ -55,7 +56,7 @@ class UI {
 
 }
 
-// Store Class: Handles Storage
+// Store Class: Handles Local Storage
 class Store {
   static getBooks(){
     let books;
@@ -112,8 +113,6 @@ document.getElementById('book-form').addEventListener('submit', (e)=> {
     // Method to clear input fields after submission
     UI.clearFields();
     }
-
-
 
 });
 // Event to Remove a Book
